@@ -12,7 +12,8 @@ class TasksScreen extends StatelessWidget {
   //   );
   // }
 
-  Widget buildBottomSheetContainer(context) => const AddTaskScreen();
+  // directly implemented in line 28
+  // Widget buildBottomSheetContainer(context) => const AddTaskScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,15 @@ class TasksScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent.shade200,
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
-            builder: buildBottomSheetContainer,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: const AddTaskScreen(),
+              ),
+            ),
           );
         },
         child: const Icon(

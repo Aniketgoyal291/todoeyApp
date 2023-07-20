@@ -8,6 +8,7 @@ class AddTaskScreen extends StatelessWidget {
     return Container(
       color: const Color(0xff757575),
       child: Container(
+        padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
@@ -15,25 +16,41 @@ class AddTaskScreen extends StatelessWidget {
           ),
           color: Colors.white,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Add Task',
               style: TextStyle(
-                color: Colors.lightBlueAccent.shade100,
-                fontSize: 25,
+                color: Colors.lightBlueAccent,
+                fontSize: 30.0,
                 fontWeight: FontWeight.w500,
               ),
             ),
             const TextField(
+              autofocus: true, // automatically bring up keyboard
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
               ),
             ),
+            const SizedBox(height: 10),
             TextButton(
               onPressed: () {},
-              child: const Text('ADD'),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.lightBlueAccent,
+                ),
+                alignment: Alignment.center,
+                height: 40,
+                width: double.infinity,
+                child: const Text(
+                  'ADD',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             )
           ],
         ),
