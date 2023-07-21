@@ -7,7 +7,7 @@ class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const <Widget>[
+      children: <Widget>[
         TaskTile(),
         TaskTile(),
         TaskTile(),
