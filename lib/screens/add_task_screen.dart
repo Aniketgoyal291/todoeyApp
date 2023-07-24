@@ -30,12 +30,11 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true, // automatically bring up keyboard
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 10),
             TextButton(
-              onPressed: () {},
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -51,6 +50,7 @@ class AddTaskScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              onPressed: () {},
             )
           ],
         ),
