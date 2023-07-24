@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// Finally we converted TaskTile into a stateless widget and lifted the state
 /// up for the second time.
 class TaskTile extends StatelessWidget {
-  TaskTile(
+  const TaskTile(
       {required this.isChecked,
       required this.taskTitle,
       required this.toggleCheckBox});
