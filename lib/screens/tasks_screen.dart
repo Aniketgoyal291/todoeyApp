@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:todoey_flutter/widgets/tasks_list.dart';
 import 'add_task_screen.dart';
+import 'package:todoey_flutter/models/task.dart';
 
-class TasksScreen extends StatelessWidget {
-  const TasksScreen({super.key});
+class TasksScreen extends StatefulWidget {
+  TasksScreen({super.key});
 
-  // We modified this function to the one down below
-  // Widget buildBottomSheet(BuildContext context) {
-  //   return Container(
-  //     color: const Color(0xff757575),
-  //   );
-  // }
+  List<Task> tasks = [];
 
-  // directly implemented in line 28
-  // Widget buildBottomSheetContainer(context) => const AddTaskScreen();
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
 
+class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +27,11 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: const AddTaskScreen(),
+                child: AddTaskScreen(addTaskCallback: (addtasktitle) {
+                  setState(() {
+                    widget.tasks.add(Task(name: addtasktitle));
+                  });
+                }),
               ),
             ),
           );
@@ -67,9 +69,9 @@ class TasksScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const Text(
-                  '12 Tasks',
-                  style: TextStyle(
+                Text(
+                  '${widget.tasks.length} Tasks',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                   ),
@@ -87,7 +89,9 @@ class TasksScreen extends StatelessWidget {
                   topLeft: Radius.circular(20),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(
+                tasks: widget.tasks,
+              ),
             ),
           ),
         ],
