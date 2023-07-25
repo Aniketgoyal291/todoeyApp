@@ -9,4 +9,9 @@ class ListProvider extends ChangeNotifier {
     tasks.add(Task(name: addtasktitle));
     notifyListeners();
   }
+
+  void removeTask(int index) {
+    tasks.removeAt(index);
+    notifyListeners();
+  }
 }
