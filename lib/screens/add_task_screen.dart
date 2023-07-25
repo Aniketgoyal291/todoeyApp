@@ -5,7 +5,6 @@ class AddTaskScreen extends StatelessWidget {
   final Function addTaskCallback;
 
   const AddTaskScreen({super.key, required this.addTaskCallback});
-
   @override
   Widget build(BuildContext context) {
     late String newTaskTitle;
