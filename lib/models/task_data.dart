@@ -4,4 +4,9 @@ import 'task.dart';
 
 class ListProvider extends ChangeNotifier {
   List<Task> tasks = [];
+
+  void addTask(String addtasktitle) {
+    tasks.add(Task(name: addtasktitle));
+    notifyListeners();
+  }
 }

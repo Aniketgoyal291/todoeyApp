@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoey_flutter/models/list_provider.dart';
+import 'package:todoey_flutter/models/task_data.dart';
 import 'package:todoey_flutter/widgets/tasks_list.dart';
 import 'add_task_screen.dart';
-import 'package:todoey_flutter/models/task.dart';
 
 class TasksScreen extends StatefulWidget {
   TasksScreen({super.key});
@@ -31,9 +30,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
                   child: AddTaskScreen(addTaskCallback: (addtasktitle) {
-                    setState(() {
-                      listProvider.tasks.add(Task(name: addtasktitle));
-                    });
+                    listProvider.addTask(addtasktitle);
                   }),
                 ),
               ),
@@ -92,9 +89,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     topLeft: Radius.circular(20),
                   ),
                 ),
-                child: TasksList(
-                  tasks: listProvider.tasks,
-                ),
+                child: TasksList(),
               ),
             ),
           ],
