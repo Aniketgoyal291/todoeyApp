@@ -4,6 +4,8 @@ import 'task_tile.dart';
 import 'package:provider/provider.dart';
 
 class TasksList extends StatefulWidget {
+  const TasksList({super.key});
+
   @override
   State<TasksList> createState() => _TasksListState();
 }

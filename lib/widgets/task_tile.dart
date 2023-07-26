@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 /// up for the second time.
 class TaskTile extends StatelessWidget {
   const TaskTile(
-      {required this.isChecked,
+      {super.key,
+      required this.isChecked,
       required this.taskTitle,
       required this.toggleCheckBox});
 
